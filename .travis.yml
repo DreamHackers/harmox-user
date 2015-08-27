@@ -1,6 +1,5 @@
 language: ruby
 bundler_args: --without development --path vendor/bundle
-script: "bundle exec rake db:drop db:create db:migrate spec"
 rvm:
   - 2.2.2
 gemfile:
@@ -8,7 +7,6 @@ gemfile:
 branches:
   only:
     - master
-    
 env:
   global:
     - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
