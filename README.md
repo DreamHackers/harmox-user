@@ -1,4 +1,6 @@
 # Summary
+
+[![Join the chat at https://gitter.im/springhackathon/harmox-user](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/springhackathon/harmox-user?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Circle CI](https://circleci.com/gh/springhackathon/harmox-user/tree/master.svg?style=svg)](https://circleci.com/gh/springhackathon/harmox-user/tree/master)
 [![Build Status](https://travis-ci.org/springhackathon/harmox-user.svg)](https://travis-ci.org/springhackathon/harmox-user)
 
