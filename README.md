@@ -1,4 +1,7 @@
-# 単体テスト
+# Summary
+[![Circle CI](https://circleci.com/gh/springhackathon/harmox-user/tree/master.svg?style=svg)](https://circleci.com/gh/springhackathon/harmox-user/tree/master)
+
+# Testing
 
 ## first
 `bundle install`
