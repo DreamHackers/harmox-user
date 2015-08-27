@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Harmox</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-default">
+      <!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
+      <% if user_signed_in? %>
+        <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
+        <!-- *_path はUserモデルを作成したときに、
+          deviseにより自動で作成されてますので、rake routesで確認できます -->
+        Logged in as <strong><%=link_to current_user.username, bots_path(current_user.username)%></strong>
+        <%= link_to 'プロフィール変更', edit_user_registration_path(current_user.username) %> |
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "Sign Up", new_user_registration_path %> |
+        <%= link_to "Sign in", new_user_session_path %>
+        <%= link_to image_tag("https://g.twimg.com/dev/sites/default/files/images_documentation/sign-in-with-twitter-gray.png"), user_omniauth_authorize_path(:twitter) %>
+      <% end %>
+    </nav>
+  </header>
+  <div class="container">
+
+  <%= yield %>
+
+  </div>
+
+  <footer align="center">
+    <nav>
+      <p>&copy; <%= Time.now.year %> All Rights Reserved.</p>
+    </nav>
+  </footer>
+</body>
+</html>

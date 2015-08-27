@@ -1,0 +1,28 @@
+defaults: &defaults
+
+development:
+  <<: *defaults
+  twitter:
+    consumer_key: 8EfQXso340wS9oUuCc3PW012W
+    consumer_secret: JtmJsM9evVHgiSI4p8K4nmfewH9YDV1qz3rnln83Hy3wtAkCCn
+    callback_url: http://localhost:3000/bots/auth/twitter/callback
+    retweet_potential_number: 100
+    follow_potential_number: 10
+
+test:
+  <<: *defaults
+  twitter:
+    consumer_key: 8EfQXso340wS9oUuCc3PW012W
+    consumer_secret: JtmJsM9evVHgiSI4p8K4nmfewH9YDV1qz3rnln83Hy3wtAkCCn
+    callback_url: http://localhost:3000/bots/auth/twitter/callback
+    retweet_potential_number: 100
+    follow_potential_number: 10
+
+production:
+  <<: *defaults
+  twitter:
+    consumer_key: 8EfQXso340wS9oUuCc3PW012W
+    consumer_secret: JtmJsM9evVHgiSI4p8K4nmfewH9YDV1qz3rnln83Hy3wtAkCCn
+    callback_url: http://harmox.link/bots/auth/twitter/callback
+    retweet_potential_number: 100
+    follow_potential_number: 10

@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>❏ 登録</h2>
+
+  <p style="color: green;"><%= notice %></p>
+  <p style="color: red;"><%= alert %></p>
+
+  <%= form_for @hash_tag do |f| %>
+    <%= f.text_field :hash_tag %>
+    <%= button_tag('登録', class: "btn btn-info") %>
+  <% end %>
+</div>
+  <!--  -->

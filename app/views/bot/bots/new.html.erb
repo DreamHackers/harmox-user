@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>❏ 登録</h2>
+
+  <% if @bot.nil? %>
+    <p style="color: green;"><%= notice %></p>
+    <p style="color: red;"><%= alert %></p>
+    <p class="bg-warning">BOTとして登録したいTwitterアカウントにログインしなおしてください。</p>
+  <% else %>
+    <p class="bg-warning">BOTとして登録するアカウントは　<%= @bot.twitter_name %>　です。</p>
+  <% end %>
+
+
+  <%= button_to "Twitterアカウント読込", bot_omniauth_authorize_path, class: 'btn btn-info'%>
+
+  <% unless @bot.nil? %>
+    <p><%= @bot.twitter_name %></p>
+    <%= form_for @bot, :url => create_bot_path do |f| %>
+    <%= button_tag('BOT登録', class: "btn btn-info") %>
+    <% end %>
+  <% end %>
+</div>
+  <!--  -->

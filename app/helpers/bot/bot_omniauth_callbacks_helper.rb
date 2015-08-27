@@ -1,0 +1,2 @@
+module Bot::BotOmniauthCallbacksHelper
+end

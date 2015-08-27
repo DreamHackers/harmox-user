@@ -1,0 +1,38 @@
+<div class="container">
+
+  <h2>BOT登録</h2>
+  <%= button_to "BOTの追加", new_bot_path, class: 'btn btn-info', method: 'get' %>
+
+  <h2>BOT一覧</h2>
+
+  <div>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered table-condensed">
+        <tr>
+          <th>No.</th>
+          <th>id</th>
+          <th>twitter_name</th>
+          <th>twitter_id</th>
+          <th>hash_tags</th>
+          <th>削除</th>
+        </tr>
+        <% if current_user.bots.count > 0 %>
+          <% current_user.bots.each_with_index do |b,cnt| %>
+            <tr>
+              <td><%= cnt+1 %></td>
+              <td><%= b.id %></td>
+              <td><%= b.twitter_name %></td>
+              <td><%= b.twitter_id %></td>
+              <td>
+                <% b.hash_tags.each do |h| %>
+                  <%= h.hash_tag %>
+                <% end %>
+              </td>
+              <td><%= link_to('bot削除', "bot/#{b.id}", method: :delete) %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
