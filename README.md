@@ -1,6 +1,6 @@
 # Summary
 [![Circle CI](https://circleci.com/gh/springhackathon/harmox-user/tree/master.svg?style=svg)](https://circleci.com/gh/springhackathon/harmox-user/tree/master)
-
+[![Build Status](https://travis-ci.org/springhackathon/harmox-user.svg)](https://travis-ci.org/springhackathon/harmox-user)
 # Testing
 
 ## first
