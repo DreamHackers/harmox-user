@@ -52,6 +52,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'rspec-rails', '~> 3.0'
   gem 'test-unit', '~> 3.0'
 #  gem 'minitest', '~> 5.0'
   gem 'selenium-webdriver', ' ~> 2.0'
