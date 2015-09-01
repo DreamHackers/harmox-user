@@ -8,9 +8,9 @@ development:
   <<: *default
   database: harmox
   socket: /private/tmp/mysql.sock
-  username:
-  password:
-  host: 127.0.0.1
+  username: root
+  password: password
+  # host: 127.0.0.1
 test:
   <<: *default
   database: harmox
