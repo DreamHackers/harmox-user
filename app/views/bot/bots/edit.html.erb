@@ -1,3 +1,13 @@
-<h1>Bots#edit</h1>
-<p>aaaaaa</p>
-<p>Find me in app/views/bot/bots/edit.html.erb</p>
+<div class="container">
+
+  <h2>BOTの編集</h2>
+
+  <p>BOTに関連するHashTagを選んでください。</p>
+
+  <%= form_for @bot, :url => {:action => 'update'} do |f| %>
+    <%= f.label :hash_tags %>
+    <%= select_tag :hash_tags, options_from_collection_for_select(HashTag.all, :id, :hash_tag), :multiple => true %>
+    <h2>Hashの変更</h2>
+    <%= f.submit "登録", class: 'btn btn-info' %>
+  <% end %>
+</div>

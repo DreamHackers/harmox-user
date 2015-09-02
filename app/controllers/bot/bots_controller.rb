@@ -25,7 +25,7 @@ class Bot::BotsController < ApplicationController
 
     if bot.save
       delete_authinfo_to_session
-      redirect_to(edit_bot_path(current_user.username, bot.id))
+      redirect_to(bots_path(current_user.username))
     else
       bot_new
       render 'admin/bot/new'
@@ -33,13 +33,31 @@ class Bot::BotsController < ApplicationController
   end
 
   def edit
+    id = params.require(:id)
+    @bot = Bot.find_by(id)
+  end
+
+  def update
+    attr = params.require(:hash_tags)
+    @bot = Bot.find_by(params.require(:id))
+
+    attr.each do |hash_tag_id|
+      hash_tag = HashTag.find_by({:id => hash_tag_id})
+      if !@bot.nil? && !hash_tag.nil?
+        @bot.hash_tags << hash_tag
+      else
+        redirect_to(edit_bot_path(current_user.username, @bot.id), alert: "存在しないHashTagです")
+      end
+    end
+
+    redirect_to(bots_path(current_user.username))
   end
 
   def destroy
     bot = find_destroy_bot
     if bot.save
       flash[:delete] =  "論理削除完了!!"
-      redirect_to admin_bot_index_path
+      redirect_to bots_path
     else
       render 'admin/bot/index'
     end
@@ -78,7 +96,6 @@ class Bot::BotsController < ApplicationController
         bot.twitter_id = bot.twitter_id.blank? ? Controllers::Bot::NG : bot.twitter_id
         bot.twitter_name = bot.twitter_name.blank? ? Controllers::Bot::NG : bot.twitter_name
         bot.access_token = bot.access_token.blank? ? Controllers::Bot::NG : bot.access_token
-        bot.hash_tags = bot.hash_tags.blank? ? Controllers::Bot::NG : bot.hash_tags
         bot.deleted = true
       end
     end

@@ -14,22 +14,26 @@
           <th>twitter_name</th>
           <th>twitter_id</th>
           <th>hash_tags</th>
+          <th>編集</th>
           <th>削除</th>
         </tr>
         <% if current_user.bots.count > 0 %>
           <% current_user.bots.each_with_index do |b,cnt| %>
-            <tr>
-              <td><%= cnt+1 %></td>
-              <td><%= b.id %></td>
-              <td><%= b.twitter_name %></td>
-              <td><%= b.twitter_id %></td>
-              <td>
-                <% b.hash_tags.each do |h| %>
-                  <%= h.hash_tag %>
-                <% end %>
-              </td>
-              <td><%= link_to('bot削除', "bot/#{b.id}", method: :delete) %></td>
-            </tr>
+            <% unless b.deleted %>
+              <tr>
+                <td><%= cnt+1 %></td>
+                <td><%= b.id %></td>
+                <td><%= b.twitter_name %></td>
+                <td><%= b.twitter_id %></td>
+                <td>
+                  <% b.hash_tags.each do |h| %>
+                    <%= h.hash_tag %>
+                  <% end %>
+                </td>
+                <td><%= button_to "編集", edit_bot_path(current_user.username, b.id), class: 'btn btn-warning', method: :get %></td>
+                <td><%= button_to "削除", "bot/#{b.id}", class: 'btn btn-danger', method: :delete %></td>
+              </tr>
+            <%end%>
           <% end %>
         <% end %>
       </table>
