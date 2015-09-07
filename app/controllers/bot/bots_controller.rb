@@ -141,6 +141,5 @@ class Bot::BotsController < ApplicationController
       schedule.time = "#{schedule_params[:hour]}:#{schedule_params[:minute]}"
       schedule.weekday = schedule_params[:weekday]
       schedule.save
-      end
     end
 end
