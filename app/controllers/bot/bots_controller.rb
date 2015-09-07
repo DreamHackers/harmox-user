@@ -131,16 +131,16 @@ class Bot::BotsController < ApplicationController
     end
 
     def register_schedule(schedule_params)
+      if @bot.nil?
+        return false
+      end
 
       schedule = Schedule.find_or_create_by(user_id: current_user.id, bot_id: @bot.id)
       schedule.user_id = current_user.id
       schedule.bot_id = @bot.id
       schedule.time = "#{schedule_params[:hour]}:#{schedule_params[:minute]}"
       schedule.weekday = schedule_params[:weekday]
-      if !@bot.nil? && schedule.save
-        return true
-      else
-        return false
+      schedule.save
       end
     end
 end
