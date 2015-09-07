@@ -2,12 +2,14 @@
 
   <h2>BOTの編集</h2>
 
-  <p>BOTに関連するHashTagを選んでください。</p>
+
 
   <%= form_for @bot, :url => {:action => 'update'} do |f| %>
     <%= f.label :hash_tags %>
-    <%= select_tag :hash_tags, options_from_collection_for_select(HashTag.all, :id, :hash_tag), :multiple => true %>
-    <h2>Hashの変更</h2>
+    <p>BOTに関連するHashTagを選んでください。</p>
+    ハッシュタグを選んでください。<%= select_tag :hash_tags, options_from_collection_for_select(HashTag.all, :id, :hash_tag), :multiple => true %><div/>
+    曜日を選んでください。<%= select_tag :weekday, options_for_select({"月曜日" => "0", "火曜日" => "1", "水曜日" => "2", "木曜日" => "3", "金曜日" => "4", "土曜日" => "5", "日曜日" => "6"}) %><div/>
+    時間を選んでください。<%= select_tag :hour, options_for_select(0..23) %>：<%= select_tag :minute, options_for_select([00,10,20,30,40,50]) %>
     <%= f.submit "登録", class: 'btn btn-info' %>
   <% end %>
 </div>

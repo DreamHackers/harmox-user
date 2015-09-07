@@ -38,16 +38,17 @@ class Bot::BotsController < ApplicationController
   end
 
   def update
-    attr = params.require(:hash_tags)
+    hash_tag_ids = params[:hash_tags]
     @bot = Bot.find_by(params.require(:id))
 
-    attr.each do |hash_tag_id|
-      hash_tag = HashTag.find_by({:id => hash_tag_id})
-      if !@bot.nil? && !hash_tag.nil?
-        @bot.hash_tags << hash_tag
-      else
-        redirect_to(edit_bot_path(current_user.username, @bot.id), alert: "存在しないHashTagです")
-      end
+    unless register_hashtags(hash_tag_ids)
+      redirect_to(edit_bot_path(current_user.username, @bot.id), alert: "存在しないHashTagです")
+    end
+
+    schedule_params = get_schedule_params(params)
+
+    unless register_schedule(schedule_params)
+      redirect_to(edit_bot_path(current_user.username, @bot.id), alert: "不正なパラメータです")
     end
 
     redirect_to(bots_path(current_user.username))
@@ -110,5 +111,36 @@ class Bot::BotsController < ApplicationController
 
       session[:twitter_id] = info[:nickname]
       session[:twitter_name] = info[:name]
+    end
+
+    def register_hashtags(hash_tag_ids)
+      hash_tag_ids.each do |hash_tag_id|
+        hash_tag = HashTag.find_by({:id => hash_tag_id})
+        if !@bot.nil? && !hash_tag.nil?
+          @bot.hash_tags << hash_tag
+        else
+          return false
+        end
+      end
+
+      return true
+    end
+
+    def get_schedule_params(params)
+      params.permit(:weekday, :hour, :minute)
+    end
+
+    def register_schedule(schedule_params)
+
+      schedule = Schedule.find_or_create_by(user_id: current_user.id, bot_id: @bot.id)
+      schedule.user_id = current_user.id
+      schedule.bot_id = @bot.id
+      schedule.time = "#{schedule_params[:hour]}:#{schedule_params[:minute]}"
+      schedule.weekday = schedule_params[:weekday]
+      if !@bot.nil? && schedule.save
+        return true
+      else
+        return false
+      end
     end
 end
