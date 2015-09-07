@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:twitter]
 
   has_many :bots, dependent: :destroy
+  has_many :schedule, dependent: :destroy
 
   validates :username, presence: true, uniqueness: true
 

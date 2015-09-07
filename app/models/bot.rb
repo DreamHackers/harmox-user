@@ -7,6 +7,7 @@ class Bot < ActiveRecord::Base
 
   has_many :bot_hash_tag_rels
   has_many :hash_tags, :through => :bot_hash_tag_rels
+  has_one :schedule, :dependent => :destroy
 
   validates :twitter_name, presence: true
   validates :twitter_id, presence: true
