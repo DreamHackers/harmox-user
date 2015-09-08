@@ -138,7 +138,7 @@ class Bot::BotsController < ApplicationController
       schedule = Schedule.find_or_create_by(user_id: current_user.id, bot_id: @bot.id)
       schedule.user_id = current_user.id
       schedule.bot_id = @bot.id
-      schedule.time = "#{schedule_params[:hour]}:#{schedule_params[:minute]}"
+      schedule.time = "#{schedule_params[:hour]}:00}"
       schedule.weekday = schedule_params[:weekday]
       schedule.save
     end
