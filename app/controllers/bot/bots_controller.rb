@@ -114,9 +114,16 @@ class Bot::BotsController < ApplicationController
     end
 
     def register_hashtags(hash_tag_ids)
+      if hash_tag_ids.nil?
+        return true #変更なし
+      end
+
       hash_tag_ids.each do |hash_tag_id|
         hash_tag = HashTag.find_by({:id => hash_tag_id})
         if !@bot.nil? && !hash_tag.nil?
+          if @bot.hash_tags.include?(hash_tag)
+            return true #すでに登録済み
+          end
           @bot.hash_tags << hash_tag
         else
           return false
