@@ -114,12 +114,18 @@ class Bot::BotsController < ApplicationController
     end
 
     def register_hashtags(hash_tag_ids)
+      if hash_tag_ids.nil?
+        return true #変更なし
+      end
+
       hash_tag_ids.each do |hash_tag_id|
         hash_tag = HashTag.find_by({:id => hash_tag_id})
-        if !@bot.nil? && !hash_tag.nil?
-          @bot.hash_tags << hash_tag
-        else
+        if @bot.nil? || hash_tag.nil?
           return false
+        elsif @bot.hash_tags.include?(hash_tag)
+          return true #すでに登録済み
+        else
+          @bot.hash_tags << hash_tag
         end
       end
 
@@ -138,7 +144,7 @@ class Bot::BotsController < ApplicationController
       schedule = Schedule.find_or_create_by(user_id: current_user.id, bot_id: @bot.id)
       schedule.user_id = current_user.id
       schedule.bot_id = @bot.id
-      schedule.time = "#{schedule_params[:hour]}:#{schedule_params[:minute]}"
+      schedule.time = "#{schedule_params[:hour]}:00}"
       schedule.weekday = schedule_params[:weekday]
       schedule.save
     end

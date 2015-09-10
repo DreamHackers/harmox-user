@@ -21,6 +21,8 @@ module Analysis
     # config.i18n.default_locale = :de
     config.i18n.default_locale = :ja
 
+    config.time_zone = 'Tokyo'
+
     config.secret_key_base = ENV["SECRET_KEY_BASE"]
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
