@@ -120,13 +120,12 @@ class Bot::BotsController < ApplicationController
 
       hash_tag_ids.each do |hash_tag_id|
         hash_tag = HashTag.find_by({:id => hash_tag_id})
-        if !@bot.nil? && !hash_tag.nil?
-          if @bot.hash_tags.include?(hash_tag)
-            return true #すでに登録済み
-          end
-          @bot.hash_tags << hash_tag
-        else
+        if @bot.nil? || hash_tag.nil?
           return false
+        elsif @bot.hash_tags.include?(hash_tag)
+          return true #すでに登録済み
+        else
+          @bot.hash_tags << hash_tag
         end
       end
 
