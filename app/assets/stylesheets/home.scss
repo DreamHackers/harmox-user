@@ -1,3 +1,37 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+img {
+}
+
+h1 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.home_h1 {
+  vertical-align: middle;
+  color: #dddddd;
+}
+
+.home_summary_message {
+  // height: 500px;
+  display: table-cell;
+  position: relative;
+}
+
+.home_summary_div {
+}
+
+.home_span {
+	// white-space: pre ;
+  position: absolute; top: 10px; left: 70px;
+  width: 60vw;
+}
+
+.landing_img {
+  width: 90vw;
+  max-height: 500px;
+  // height: 500px;
+}

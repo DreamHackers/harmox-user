@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+ .main_application {
+   position: absolute;
+   top: 8px;
+   left: 8px;
+   bottom: 8px;
+   right: 8px;
+
+   overflow: scroll;
+
+   background-color: #fff;
+   border-radius: 8px 8px 8px 8px;
+}
+
+.header_layout {
+  padding-top: 10px;
+  padding-left: 8px;
+}
+
+.twitter_layout {
+  margin-top: 29px;
+  margin-right: 10px;
+  float: right;
+}
