@@ -20,7 +20,7 @@
           deviseにより自動で作成されてますので、rake routesで確認できます -->
         Logged in as <strong><%=link_to current_user.username, bots_path(current_user.username)%></strong>|
              <%= link_to 'HashTagの登録', hash_tags_path %> |
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :get %>
       <% else %>
         <span>
           <%= link_to image_tag("signin_with_twitter_logo.png", :size => "188x30", :class => "twitter_layout"), user_omniauth_authorize_path(:twitter) %>
