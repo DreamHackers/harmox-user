@@ -240,7 +240,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  config.omniauth :twitter, "GfTi4PoJCNGhkmdmAOzgJSuM9", "oj6EfVDzfRy4QKbWZbk343Vg2oWIp6n0KRJWiooIS92ktXE9db"
+  config.omniauth :twitter, ENV['TWITTER_ACCESS_LOGIN'], ENV['TWITTER_SECRET_LOGIN']
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
