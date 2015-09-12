@@ -1,3 +1,8 @@
+# harmox v0.1
+![logo](app/assets/images/main_logo.png)
+
+役立つボットをつくってみよう 情報収集はTwitterで
+
 # Summary
 
 [![Join the chat at https://gitter.im/springhackathon/harmox-user](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/springhackathon/harmox-user?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
