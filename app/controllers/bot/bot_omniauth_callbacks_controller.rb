@@ -38,8 +38,16 @@ class Bot::BotOmniauthCallbacksController < ApplicationController
 
     session[:bot] = bot
 
-    unless Bot.find_by_twitter_id(bot["twitter_id"]).nil?
-      redirect_to(new_bot_path, alert: "すでに登録済みです")
+    already_bot = Bot.find_by_twitter_id(bot["twitter_id"])
+
+    unless already_bot.nil?
+      unless already_bot.deleted
+        redirect_to(new_bot_path, alert: "すでに登録済みです")
+      else
+        already_bot.deleted = false
+        already_bot.save
+        redirect_to bots_path(current_user.username)
+      end
     else
       redirect_to new_bot_path
     end

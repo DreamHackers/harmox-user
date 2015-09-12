@@ -13,4 +13,13 @@ class Bot::HashTagsController < ApplicationController
       redirect_to(new_hash_tag_path, alert: "すでに登録されているHashTagです")
     end
   end
+
+  def destroy
+    hash_tag_param = params.permit(:id)
+    hash_tag = HashTag.find_by(hash_tag_param)
+    unless hash_tag.nil?
+      hash_tag.destroy
+    end
+    redirect_to hash_tags_path
+  end
 end

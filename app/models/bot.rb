@@ -6,7 +6,7 @@ class Bot < ActiveRecord::Base
   belongs_to :user
 
   has_many :bot_hash_tag_rels
-  has_many :hash_tags, :through => :bot_hash_tag_rels
+  has_many :hash_tags, :through => :bot_hash_tag_rels, :dependent => :destroy
   has_one :schedule, :dependent => :destroy
 
   validates :twitter_name, presence: true

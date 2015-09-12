@@ -33,13 +33,13 @@ class Bot::BotsController < ApplicationController
   end
 
   def edit
-    id = params.require(:id)
-    @bot = Bot.find_by(id)
+    bot_param = params.permit(:id)
+    @bot = Bot.find_by(bot_param)
   end
 
   def update
     hash_tag_ids = params[:hash_tags]
-    @bot = Bot.find_by(params.require(:id))
+    @bot = Bot.find_by(params.permit(:id))
 
     unless register_hashtags(hash_tag_ids)
       redirect_to(edit_bot_path(current_user.username, @bot.id), alert: "存在しないHashTagです")
@@ -119,7 +119,7 @@ class Bot::BotsController < ApplicationController
       end
 
       hash_tag_ids.each do |hash_tag_id|
-        hash_tag = HashTag.find_by({:id => hash_tag_id})
+        hash_tag = HashTag.find_by({:id => hash_tag_id.to_i})
         if @bot.nil? || hash_tag.nil?
           return false
         elsif @bot.hash_tags.include?(hash_tag)

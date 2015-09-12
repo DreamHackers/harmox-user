@@ -11,11 +11,13 @@
         <tr>
           <th>No.</th>
           <th>HashTag</th>
+          <th>削除</th>
         </tr>
         <%  HashTag.all.each_with_index do |b, cnt| %>
           <tr>
             <td><%= cnt+1 %></td>
             <td><%= b.hash_tag %></td>
+            <td><%= button_to "削除", hash_tag_path(b.id), class: 'btn btn-danger', method: :delete %></td>
           </tr>
         <% end %>
       </table>
