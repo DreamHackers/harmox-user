@@ -14,6 +14,11 @@
  *= require_self
  */
 
+.main_div {
+   background-color: #fff;
+   border-radius: 30px 30px 30px 30px;
+}
+
  .main_application {
    position: absolute;
    top: 8px;
@@ -22,9 +27,7 @@
    right: 8px;
 
    overflow: scroll;
-
-   background-color: #fff;
-   border-radius: 8px 8px 8px 8px;
+   background-color: #888;
 }
 
 .header_layout {
@@ -36,4 +39,8 @@
   margin-top: 29px;
   margin-right: 10px;
   float: right;
+}
+
+.main_footer {
+  padding-top: 30px;
 }

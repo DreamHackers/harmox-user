@@ -7,33 +7,36 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="main_application">
+  <div class="main_div">
 
-  <header>
-    <span class="header_layout">
-      <%= link_to image_tag("main_logo.png"), root_path %>
-    </span>
-    <!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
-    <% if user_signed_in? %>
-      <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
-      <!-- *_path はUserモデルを作成したときに、
-        deviseにより自動で作成されてますので、rake routesで確認できます -->
-      Logged in as <strong><%=link_to current_user.username, bots_path(current_user.username)%></strong>
-      <%= link_to 'プロフィール変更', edit_user_registration_path(current_user.username) %> |
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to image_tag("signin_with_twitter_logo.png", :size => "188x30", :class => "twitter_layout"), user_omniauth_authorize_path(:twitter) %>
-    <% end %>
-  </header>
-  <div class="container">
+    <header>
+      <span class="header_layout">
+        <%= link_to image_tag("main_logo.png"), root_path %>
+      </span>
+      <!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
+      <% if user_signed_in? %>
+        <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
+        <!-- *_path はUserモデルを作成したときに、
+          deviseにより自動で作成されてますので、rake routesで確認できます -->
+        Logged in as <strong><%=link_to current_user.username, bots_path(current_user.username)%></strong>
+        <%= link_to 'プロフィール変更', edit_user_registration_path(current_user.username) %> |
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to image_tag("signin_with_twitter_logo.png", :size => "188x30", :class => "twitter_layout"), user_omniauth_authorize_path(:twitter) %>
+      <% end %>
+    </header>
+    <div class="container">
 
-  <%= yield %>
+    <%= yield %>
+
+    </div>
+
+    <footer align="center" class="main_footer">
+      <nav>
+        <p>&copy; <%= Time.now.year %> All Rights Reserved.</p>
+      </nav>
+    </footer>
 
   </div>
-
-  <footer align="center">
-    <nav>
-      <p>&copy; <%= Time.now.year %> All Rights Reserved.</p>
-    </nav>
-  </footer>
 </body>
 </html>
