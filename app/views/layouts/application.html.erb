@@ -10,7 +10,7 @@
 
   <header>
     <span class="header_layout">
-      <%= link_to image_tag("main_logo.png") %>
+      <%= link_to image_tag("main_logo.png"), root_path %>
     </span>
     <!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
     <% if user_signed_in? %>
