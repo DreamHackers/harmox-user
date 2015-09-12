@@ -22,7 +22,9 @@
              <%= link_to 'HashTagの登録', hash_tags_path %> |
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       <% else %>
-        <%= link_to image_tag("signin_with_twitter_logo.png", :size => "188x30", :class => "twitter_layout"), user_omniauth_authorize_path(:twitter) %>
+        <span>
+          <%= link_to image_tag("signin_with_twitter_logo.png", :size => "188x30", :class => "twitter_layout"), user_omniauth_authorize_path(:twitter) %>
+        </span>
       <% end %>
     </header>
     <div class="container">
