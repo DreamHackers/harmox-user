@@ -17,7 +17,7 @@
 .landing_text {
   position: absolute;
   top: 10%;
-  left: 0;
+  left: -15%;
   right: 0;
   bottom: 0;
   margin: auto;
@@ -26,4 +26,8 @@
 
   color: #DDDDDD;
   text-align: center;
+}
+
+.landing_img {
+  padding-right: 70px;
 }
