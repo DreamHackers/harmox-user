@@ -2,36 +2,28 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-img {
-}
-
-h1 {
-  text-align: center;
-  margin-top: 50px;
-}
-
-.home_h1 {
-  vertical-align: middle;
-  color: #dddddd;
-}
-
 .home_summary_message {
-  // height: 500px;
-  display: table-cell;
+  // display: table-cell;
+  width: 90vw;
+  margin-top: 20px;
   position: relative;
 }
 
-.home_summary_div {
+.br:before {
+	content: "\A";
+	white-space: pre;
 }
 
-.home_span {
-	// white-space: pre ;
-  position: absolute; top: 10px; left: 70px;
-  width: 60vw;
-}
+.landing_text {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
 
-.landing_img {
-  width: 90vw;
-  max-height: 500px;
-  // height: 500px;
+  color: #DDDDDD;
+  text-align: center;
 }
