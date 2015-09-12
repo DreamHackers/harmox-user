@@ -1,5 +1,6 @@
 default: &default
-  adapter: mysql2
+  # adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   pool: 5
   username: root
@@ -7,7 +8,7 @@ default: &default
 development:
   <<: *default
   database: harmox
-  socket: /private/tmp/mysql.sock
+  # socket: /private/tmp/mysql.sock
   username: root
   password: password
   # host: 127.0.0.1
@@ -17,4 +18,4 @@ test:
 production:
   <<: *default
   database: harmox
-  socket: /var/lib/mysql/mysql.sock
+  # socket: /var/lib/mysql/mysql.sock

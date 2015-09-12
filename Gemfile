@@ -47,7 +47,8 @@ group :development, :test do
   gem 'guard-bundler'
   gem 'guard-livereload'
   gem 'guard-rspec', '4.6.4'
-  gem 'mysql2', '0.3.20'
+  # gem 'mysql2', '0.3.20'
+  gem 'pg', '0.18.3'
 end
 
 group :test do
@@ -59,7 +60,8 @@ group :test do
   gem 'shoulda-matchers', '2.8.0'
   gem 'rails-erd', '1.4.2'
   # gem 'coveralls', require: false
-  gem 'mysql2', '0.3.20'
+  # gem 'mysql2', '0.3.20'
+  gem 'pg', '0.18.3'
 end
 
 group :production do
