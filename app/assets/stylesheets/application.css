@@ -14,12 +14,21 @@
  *= require_self
  */
 
+th {
+  text-align: center;
+}
+
+td.center {
+  text-align: center;
+  vertical-align: middle;
+}
+
 .main_div {
    background-color: #fff;
    border-radius: 30px 30px 30px 30px;
 }
 
- .main_application {
+.main_application {
    position: absolute;
    top: 8px;
    left: 8px;
@@ -43,4 +52,8 @@
 
 .main_footer {
   padding-top: 30px;
+}
+
+footer > nav > p {
+  padding-bottom: 20px;
 }

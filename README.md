@@ -1,4 +1,4 @@
-# harmox v0.1
+# harmox v0.1.2
 ![logo](app/assets/images/main_logo.png)
 
 役立つボットをつくってみよう 情報収集はTwitterで
@@ -16,10 +16,14 @@
 
 |project|detail|
 |:--:|:--:|
-|harmox-script|スクリプト|
+|~~harmox-script~~|~~スクリプト~~|
 |harmox-admin|管理画面|
 |harmox-user|ユーザ画面|
-|harmox-analytics|分析画面|
+|~~harmox-analytics~~|~~分析画面~~|
+
+# 使い方
+Twitterでログインしてください  
+ボット管理、スケジュール管理ができます
 
 # ルール
 
@@ -40,7 +44,7 @@
 ## ラベルについて
 * 大体以下のような形で
 * ラベルを追加したらここに追記して下さい
- 
+
 ### 必須ラベル
 
 |label|詳細|

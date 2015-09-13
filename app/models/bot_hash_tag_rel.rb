@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: bot_hash_tag_rels
+#
+#  id          :integer          not null, primary key
+#  bot_id      :integer
+#  hash_tag_id :integer
+#  deleted     :boolean          default(FALSE), not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class BotHashTagRel < ActiveRecord::Base
   belongs_to :bot
   belongs_to :hash_tag

@@ -29,6 +29,10 @@ gem "sprockets", '2.12.3'
 
 gem 'whenever', '~> 0.9.0', :require => false
 
+gem 'rails-erd', '1.4.2'
+
+gem 'annotate'
+
 group :development, :test do
   gem 'rb-readline', '0.5.3'
   gem 'rspec', '~> 3.0'
@@ -49,6 +53,7 @@ group :development, :test do
   gem 'guard-rspec', '4.6.4'
   # gem 'mysql2', '0.3.20'
   gem 'pg', '0.18.3'
+  gem 'meta_request'
 end
 
 group :test do

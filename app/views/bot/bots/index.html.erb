@@ -23,15 +23,15 @@
               <tr>
                 <td><%= cnt+1 %></td>
                 <td><%= b.id %></td>
-                <td><%= b.twitter_name %></td>
+                <td class="center"><%= b.twitter_name %></td>
                 <td><%= b.twitter_id %></td>
                 <td>
                   <% b.hash_tags.each do |h| %>
                     <%= h.hash_tag %>
                   <% end %>
                 </td>
-                <td><%= button_to "編集", edit_bot_path(current_user.username, b.id), class: 'btn btn-warning', method: :get %></td>
-                <td><%= button_to "削除", destroy_bot_path(current_user.username, b.id), class: 'btn btn-danger', method: :delete %></td>
+                <td class="center"><%= button_to "編集", edit_bot_path(current_user.username, b.id), class: 'btn btn-warning', method: :get %></td>
+                <td class="center"><%= button_to "削除", destroy_bot_path(current_user.username, b.id), class: 'btn btn-danger', method: :delete %></td>
               </tr>
             <%end%>
           <% end %>
