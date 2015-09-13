@@ -7,8 +7,12 @@ class Bot::HashTagsController < ApplicationController
     attr = params.require(:hash_tag).permit(:hash_tag)
 
     if HashTag.find_by_hash_tag(attr[:hash_tag]).nil?
-      HashTag.create(attr)
-      redirect_to hash_tags_path
+      hash_tag = HashTag.create(attr)
+      if hash_tag.save
+        redirect_to hash_tags_path
+      else
+        redirect_to(new_hash_tag_path, alert: "HashTagを入力してください")
+      end
     else
       redirect_to(new_hash_tag_path, alert: "すでに登録されているHashTagです")
     end
