@@ -23,7 +23,7 @@ namespace :exec_schedule do
   end
 
   def follow_twitter_client(id)
-    bot = Bot.find_by({:id => id.to_i})
+    bot = Bot.find_by({id: id.to_i})
 
     client = create_client(bot)
 
@@ -44,7 +44,7 @@ namespace :exec_schedule do
   end
 
   def retweet_twitter_client(id)
-    bot = Bot.find_by({:id => id.to_i})
+    bot = Bot.find_by({id: id.to_i})
 
     client = create_client(bot)
 
