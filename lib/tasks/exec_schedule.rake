@@ -5,6 +5,7 @@ namespace :exec_schedule do
     span_end = "#{Time.zone.now.strftime("%H")}:59"
     Bot.find_by_alive.each do |bot|
       schedule_time = "#{bot.schedule.time.strftime("%H")}:#{bot.schedule.time.strftime("%M")}"
+
       if span_start <= schedule_time && schedule_time <= span_end
         follow_twitter_client(bot.id)
         retweet_twitter_client(bot.id)
@@ -22,7 +23,7 @@ namespace :exec_schedule do
   end
 
   def follow_twitter_client(id)
-    bot = Bot.find_by(id)
+    bot = Bot.find_by({:id => id.to_i})
 
     client = create_client(bot)
 
@@ -43,7 +44,7 @@ namespace :exec_schedule do
   end
 
   def retweet_twitter_client(id)
-    bot = Bot.find_by(id)
+    bot = Bot.find_by({:id => id.to_i})
 
     client = create_client(bot)
 
