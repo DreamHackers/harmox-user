@@ -53,3 +53,7 @@ td.center {
 .main_footer {
   padding-top: 30px;
 }
+
+footer > nav > p {
+  padding-bottom: 20px;
+}
