@@ -16,8 +16,8 @@
         <%  HashTag.all.each_with_index do |b, cnt| %>
           <tr>
             <td><%= cnt+1 %></td>
-            <td><%= b.hash_tag %></td>
-            <td><%= button_to "削除", hash_tag_path(b.id), class: 'btn btn-danger', method: :delete %></td>
+            <td class="center"><%= b.hash_tag %></td>
+            <td class="center"><%= button_to "削除", hash_tag_path(b.id), class: 'btn btn-danger', method: :delete %></td>
           </tr>
         <% end %>
       </table>

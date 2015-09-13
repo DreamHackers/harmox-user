@@ -19,8 +19,8 @@
         <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
         <!-- *_path はUserモデルを作成したときに、
           deviseにより自動で作成されてますので、rake routesで確認できます -->
-        Logged in as <strong><%=link_to current_user.username, bots_path(current_user.username)%></strong>|
-             <%= link_to 'HashTagの登録', hash_tags_path %> |
+        Logged in as&nbsp;<strong><%=link_to current_user.username, bots_path(current_user.username)%></strong>&nbsp;|
+        <%= link_to 'HashTagの登録', hash_tags_path %>&nbsp;|
         <%= link_to "ログアウト", destroy_user_session_path, method: :get %>
       <% else %>
         <span>
